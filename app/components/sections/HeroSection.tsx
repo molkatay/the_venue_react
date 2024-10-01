@@ -23,9 +23,11 @@ const testimonials = [
 ];
 
 
+interface HeroSectionProps {
+    menuData: any;
+}
 
-
-function HeroSection() {
+function HeroSection({ menuData }: HeroSectionProps) {
     const [index, setIndex] = React.useState(0)
     const [testimonial, setName] = React.useState(testimonials[index]);
 
@@ -42,7 +44,7 @@ function HeroSection() {
             <div className="flex items-center justify-between md:pt-[2rem]">
                 <h1 className="hidden font-serif text-4xl font-extrabold md:block">The Venue Spot</h1>
                 <div className="hidden md:block">
-                    <DesktopNav/>
+                    <DesktopNav menuData={menuData}/>
                 </div>
                 <div className="fixed w-full py-4 mt-4 md:hidden top-[10px] left-0 z-50">
                     <MobileNavbar/>

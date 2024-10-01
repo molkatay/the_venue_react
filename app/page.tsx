@@ -8,7 +8,7 @@ import PricingSection from "@/app/components/sections/PricingSection";
 import LevelUpSection from "@/app/components/sections/LevelUpSection";
 import Footer from "@/app/components/sections/Footer";
 import {useEffect} from "react";
-
+import {FetchApiService} from "@/app/services/FetchApiNavService";
 
 
 // Define types for the IntersectionObserver callback
@@ -17,7 +17,9 @@ interface IntersectionObserverEntry {
     isIntersecting: boolean;
 }
 
-export default function Home(): JSX.Element {
+
+export default async function Home(): JSX.Element {
+
     useEffect(() => {
         const allSections = document.querySelectorAll<HTMLElement>('.section');
         const revealSection = function (entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
